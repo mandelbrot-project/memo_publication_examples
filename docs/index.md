@@ -12,7 +12,7 @@ MEMO analysis is made available to the community through a python package. For a
 
 Comparative PCoA with samples colored according to their:
 
-*   [**content**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_contains.html)
+*   [**Content**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_contains.html)
 *   [**LC experiment**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_Experiment.html)
 *   [**Proportion of Fecal-1**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_Proportion_Fecal_1.html)
 *   [**Proportion of Fecal-2**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_Proportion_Fecal_2.html)
@@ -23,5 +23,5 @@ Comparative PCoA with samples colored according to their:
 
 Comparative PCoA with samples colored according to their:
 
-*   [**content**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_qe_vs_qtof_color_contains.html)
+*   [**Content**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_qe_vs_qtof_color_contains.html)
 *   [**MS instrument**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_qe_vs_qtof_color_instrument.html)
