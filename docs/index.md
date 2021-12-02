@@ -1,6 +1,8 @@
 ---
 layout: default
 ---
+![memo_logo](memo_logo.jpg)
+
 
 This website gathers interactive visualizations of the plots presented in MEMO article's figures.
 
