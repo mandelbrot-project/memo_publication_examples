@@ -57,3 +57,6 @@ Comparative UMAP with samples colored according to their:
 *   [**UMAP**](https://mandelbrot-project.github.io/memo_publication_examples/waltheria_indica/umap_vgf_with_waltheria_color_species_organe_selected.html)
 
 *   [**TMAP**](https://mandelbrot-project.github.io/memo_publication_examples/waltheria_indica/tmap_vgf_with_waltheria_color_species_organe_selected.html)
+
+## Credits
+Plots were generated using [Plotly](https://plot.ly.) (Plotly Technologies Inc. Collaborative data science. Montréal, QC, 2015)
