@@ -10,7 +10,8 @@ MEMO analysis is made available to the community through a python package. For a
 
 ## Figure 2
 
-Classical feature-table (Bray-Curtis), MEMO, Qemistree and CSCS comparison using PCoA visualization on the [Qemistree Evaluation Dataset](https://www.nature.com/articles/s41589-020-00677-3)
+Classical feature-table (Bray-Curtis), MEMO, Qemistree and CSCS comparison using PCoA visualization on the [Qemistree Evaluation Dataset](https://www.nature.com/articles/s41589-020-00677-3).
+
 Comparative PCoA with samples colored according to their:
 
 *   [**Content**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_contains.html)
@@ -22,7 +23,8 @@ Comparative PCoA with samples colored according to their:
 
 ## Figure 3
 
-Co-analysis of the same samples as above, analyzed with the same LC-method on **2 different Mass Spectrometers (MS)**
+Co-analysis of the same samples as above, analyzed with the same LC-method on **2 different Mass Spectrometers (MS)**.
+
 PCoA (PC1 vs PC2 _and_ PC2 vs PC3) with samples colored according to their:
 
 *   [**Content**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_qe_vs_qtof_color_contains.html)
@@ -53,7 +55,7 @@ Comparative UMAP with samples colored according to their:
 
 ### TMAP
 
-Comparative UMAP with samples colored according to their:
+Comparative TMAP with samples colored according to their:
 
 *   [**Injection date (2 groups)**](https://mandelbrot-project.github.io/memo_publication_examples/plant_extract_dataset/tmap_vgf_color_before_after.html)
 *   [**Injection date**](https://mandelbrot-project.github.io/memo_publication_examples/plant_extract_dataset/tmap_vgf_color_ms_injection_date.html)
