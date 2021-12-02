@@ -52,7 +52,7 @@ Comparative UMAP with samples colored according to their:
 *   [**Injection date**](https://mandelbrot-project.github.io/memo_publication_examples/plant_extract_dataset/tmap_vgf_color_ms_injection_date.html)
 *   [**_Trypanosoma cruzi_ activity**](https://mandelbrot-project.github.io/memo_publication_examples/plant_extract_dataset/tmap_vgf_color_tcruzi_activity_class.html)
 
-## UMAP and TMAP visulalization of MEMO from unaligned samples matrix of the Plant extract dataset and 3 _Waltheria indica_ samples (Figure 4)
+## UMAP and TMAP visulalization of MEMO from unaligned samples matrix of the Plant extract dataset and 3 _Waltheria indica_ samples (Figure 5)
 
 UMAP:
 
