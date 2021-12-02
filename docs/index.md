@@ -8,8 +8,9 @@ MEMO analysis is made available to the community through a python package. For a
 
 # Interactive plots
 
-## Classical feature-table (Bray-Curtis), MEMO, Qemistree and CSCS comparison (Figure 2)
+## Figure 2
 
+Classical feature-table (Bray-Curtis), MEMO, Qemistree and CSCS comparison using PCoA visualization on the [Qemistree Evaluation Dataset](https://www.nature.com/articles/s41589-020-00677-3)
 Comparative PCoA with samples colored according to their:
 
 *   [**Content**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_contains.html)
@@ -19,14 +20,20 @@ Comparative PCoA with samples colored according to their:
 *   [**Proportion of Tomato**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_Proportion_Fecal_1.html)
 *   [**Proportion of Plasma**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_color_Proportion_NIST_1950_SRM.html)
 
-## Q-Exactive vs Q-ToF co-analysis (Figure 3)
+## Figure 3
 
- PCoA (PC1 vs PC2 and PC2 vs PC3) with samples colored according to their:
+Co-analysis of the same samples as above, analyzed with the same LC-method on **2 different Mass Spectrometers (MS)**
+PCoA (PC1 vs PC2 _and_ PC2 vs PC3) with samples colored according to their:
 
 *   [**Content**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_qe_vs_qtof_color_contains.html)
 *   [**MS instrument**](https://mandelbrot-project.github.io/memo_publication_examples/benchmark/qemistree_dataset_qe_vs_qtof_color_instrument.html)
   
-## Classical feature-table (Bray-Curtis), MEMO from aligned samples and MEMO from unaligned samples comparison on the Plant extract dataset (Figure 4)
+## Figure 4
+Comparison of 3 different visualization (PCoA, UMAP and TMAP) performed on 3 different matrices: 
+*    the feature-table (Bray-Curtis)
+*    MEMO from aligned samples matrix
+*    and MEMO from unaligned samples matrix
+on the plant extract dataset, consisting of 1600 plant extracts-
 
 ### PCoA
 
@@ -52,7 +59,8 @@ Comparative UMAP with samples colored according to their:
 *   [**Injection date**](https://mandelbrot-project.github.io/memo_publication_examples/plant_extract_dataset/tmap_vgf_color_ms_injection_date.html)
 *   [**_Trypanosoma cruzi_ activity**](https://mandelbrot-project.github.io/memo_publication_examples/plant_extract_dataset/tmap_vgf_color_tcruzi_activity_class.html)
 
-## UMAP and TMAP visulalization of MEMO from unaligned samples matrix of the Plant extract dataset after addition of 3 _Waltheria indica_ samples (Figure 5)
+## Figure 5
+UMAP and TMAP visulalization of MEMO from unaligned samples matrix of the Plant extract dataset after addition of 3 _Waltheria indica_ samples: 2 extracts of aerial parts and roots analyzed with same method as the plant extract dataset, and 1 extract of aerial parts analyzed with a different LC-method and Orbitrap (Plus vs Q-Exactive).
 
 *   [**UMAP**](https://mandelbrot-project.github.io/memo_publication_examples/waltheria_indica/umap_vgf_with_waltheria_color_species_organe_selected.html)
 
