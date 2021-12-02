@@ -1,0 +1,8 @@
+,pseudo-F,p-value
+Feature Table (Bray-Curtis),113.54521832015116,0.001
+MEMO aligned (Bray-Curtis),25.391713519927713,0.001
+MEMO unaligned (Bray-Curtis),2.228990704606446,0.017
+Qemistree weighted UniFrac,18.223909064607692,0.001
+Qemistree unweighted UniFrac,81.64134428849565,0.001
+CSCS weighted,17.93577738119423,0.001
+CSCS unweighted,28.273692130101203,0.001
