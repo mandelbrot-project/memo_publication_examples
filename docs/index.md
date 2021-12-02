@@ -57,7 +57,7 @@ Comparative UMAP with samples colored according to their:
 UMAP:
 
 *   [**Injection date (2 groups)**](https://mandelbrot-project.github.io/memo_publication_examples/waltheria_indica/umap_vgf_with_waltheria_color_species_organe_selected.html)
-*   
+
 TMAP:
 
 *   [**Injection date**](https://mandelbrot-project.github.io/memo_publication_examples/waltheria_indica/tmap_vgf_with_waltheria_color_species_organe_selected.html)
