@@ -1,3 +1,3 @@
 title: MEMO Publication Examples
 description: Interactive visualizations of Plots presented in the MEMO publication
-theme: jekyll-theme-cayman
+remote_theme: pages-themes/cayman@v0.2.0
