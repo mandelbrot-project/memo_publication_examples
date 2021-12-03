@@ -1,2 +1,4 @@
 # memo_publication_examples
-Examples of MEMO application used for the article
+
+
+Website of publiacation interctaive plots available [here](https://mandelbrot-project.github.io/memo_publication_examples/).
