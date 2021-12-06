@@ -1,2 +1,2 @@
-# memo_publication_examples
-Examples of MEMO application used for the article
+# Individual spectra files
+Download aligned individual spectra files from MASSive here <todo>
