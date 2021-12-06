@@ -1,2 +1,2 @@
-# memo_publication_examples
-Examples of MEMO application used for the article
+# Aligned feature table and spectra
+Download aligned feature table and spectra from MASSive here <todo>
