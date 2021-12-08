@@ -1,3 +1,9 @@
+""" TMAP PLOTTER"""
+
+# To run this script, first generate and save MEMO matrices and feature table using plant_extract_dataset.py. 
+# TMAP package is only available on macOS and Linux platfroms, so consider using WSL if you are using a Windows machine.
+# TMAP: https://tmap.gdb.tools/
+
 from os import path
 import pandas as pd
 import tmap as tm

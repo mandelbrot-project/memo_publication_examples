@@ -161,7 +161,7 @@ samples = df_meta_samples['sample_id'].to_list()
 
 
     # Path to folder containning the mgf
-path_to_file = "../01_data/03_plant_extract_dataset/individual_mgf_files"
+path_to_file = "../01_input_data/03_plant_extract_dataset/individual_mgf_files"
 
     # Generating memo matrix
 memo_unaligned = memo.MemoMatrix()
@@ -499,7 +499,7 @@ fig.write_image(f"plot/umap/umap_vgf_color_{category}.svg",  scale=3)
 path_to_tmap_coordinates = [
     'tmap_coordinates/tmap_coordinates_feature_table',
     'tmap_coordinates/tmap_coordinates_memo_aligned',
-    'tmap_coordinates/tmap_coordinates_memo_unaligned_2',
+    'tmap_coordinates/tmap_coordinates_memo_unaligned',
 ]
 
 # Plotting
@@ -669,7 +669,7 @@ for cat in categories:
 
     # Generate MEMO matrix
     # Path to folder containning the mgf
-path_to_file = "../../../Desktop/waltheria_treated"
+path_to_file = "../01_input_data/03_plant_extract_dataset/waltheria_indica_mgf_files/"
 
     # Generating memo matrix
 memo_waltheria = memo.MemoMatrix()
