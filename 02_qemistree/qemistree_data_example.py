@@ -45,8 +45,8 @@ def conditions(df_meta):
 
 
 start = time.time()
-feat_table_qe = memo.FeatureTable(path="../01_data/02_qemistree/qemistree_memo_cscs_comparison/quantification_table-00000.csv", software='mzmine')
-spectra_qe = memo.SpectraDocuments(path="../01_data/02_qemistree/qemistree_memo_cscs_comparison/qemistree_specs_ms.mgf", min_relative_intensity = 0.01,
+feat_table_qe = memo.FeatureTable(path="../01_input_data/02_qemistree/qemistree_memo_cscs_comparison/quantification_table-00000.csv", software='mzmine')
+spectra_qe = memo.SpectraDocuments(path="../01_input_data/02_qemistree/qemistree_memo_cscs_comparison/qemistree_specs_ms.mgf", min_relative_intensity = 0.01,
             max_relative_intensity = 1, min_peaks_required=10, losses_from = 10, losses_to = 200, n_decimals = 2)
 
 memo_qe = memo.MemoMatrix()
@@ -55,7 +55,7 @@ memo_qe.memo_from_aligned_samples(featuretable= feat_table_qe, spectradocuments=
 end = time.time()
 print(f"computing memo from aligned took {end-start} seconds")
 
-    # We use the filter_matrix function to remove blanks and 
+    # We use the filter function to remove blanks and 
 memo_qe = memo_qe.filter(samples_pattern='blank|Qcmix')
 feat_table_qe = feat_table_qe.filter(samples_pattern='blank|Qcmix')
 
@@ -64,7 +64,7 @@ feat_table_qe = feat_table_qe.filter(samples_pattern='blank|Qcmix')
 
 
     # Path to folder containning the mgf (QEC18)
-path_to_file = "../01_data/02_qemistree/mgf_individual_files/Qemistree_QE_C18/"
+path_to_file = "../01_input_data/02_qemistree/mgf_individual_files/Qemistree_QE_C18/"
     # Generating memo matrix
 start = time.time()
 memo_unaligned = memo.MemoMatrix()
@@ -76,7 +76,7 @@ print(f"computing memo from unaligned for C18 samples took {end-start} seconds")
 memo_unaligned = memo_unaligned.filter(samples_pattern='blank|Qcmix')
 
     # Path to folder containning the mgf (QEC18RT)
-path_to_file = "../01_data/02_qemistree/mgf_individual_files/Qemistree_QE_C18RT/"
+path_to_file = "../01_input_data/02_qemistree/mgf_individual_files/Qemistree_QE_C18RT/"
     # Generating memo matrix
 start = time.time()
 memo_unaligned2 = memo.MemoMatrix()
@@ -95,7 +95,7 @@ memo_merged.memo_matrix = memo_merged.memo_matrix.div(memo_merged.memo_matrix.su
 ''' Load and clean metadata '''
 
 
-df_meta = pd.read_csv("../01_data/02_qemistree/1901_gradient_benchmarking_dataset_v4_sample_metadata.txt", sep='\t')
+df_meta = pd.read_csv("../01_input_data/02_qemistree/1901_gradient_benchmarking_dataset_v4_sample_metadata.txt", sep='\t')
 df_meta['Samplename'] = df_meta['Samplename'].str[:-6]
 df_meta['Samplename'] = df_meta['Samplename'].str.replace('BLANK_', 'BLANK')
 df_meta = df_meta[['Filename', 'Experiment', 'Samplename', 'Triplicate_number', 'Proportion_Fecal_1', 'Proportion_Fecal_2', 'Proportion_Tomato', 'Proportion_NIST_1950_SRM']]
@@ -121,24 +121,24 @@ df_feature_trans = feat_table_qe.feature_table.loc[samples]
 dm_braycurtis = sp.spatial.distance.pdist(df_feature_trans, 'braycurtis')
 
     # CSCS
-dm_cscs_weighted = pd.read_csv("../01_data/02_qemistree/qemistree_memo_cscs_comparison/cscs_weighed_dm.tsv", sep='\t')
+dm_cscs_weighted = pd.read_csv("../01_input_data/02_qemistree/qemistree_memo_cscs_comparison/cscs_weighed_dm.tsv", sep='\t')
 dm_cscs_weighted.set_index('Unnamed: 0', inplace=True)
 dm_cscs_weighted = dm_cscs_weighted[samples]
 dm_cscs_weighted = dm_cscs_weighted.loc[samples]
 
-dm_cscs_unweighted = pd.read_csv("../01_data/02_qemistree/qemistree_memo_cscs_comparison/cscs_unweighed_dm.tsv", sep='\t')
+dm_cscs_unweighted = pd.read_csv("../01_input_data/02_qemistree/qemistree_memo_cscs_comparison/cscs_unweighed_dm.tsv", sep='\t')
 dm_cscs_unweighted.set_index('Unnamed: 0', inplace=True)
 dm_cscs_unweighted = dm_cscs_unweighted[samples]
 dm_cscs_unweighted = dm_cscs_unweighted.loc[samples]
 
     #Qemistree
-dm_qemistree_weighted = pd.read_csv("../01_data/02_qemistree/qemistree_memo_cscs_comparison/weighted_unifrac_dm.csv", sep=',')
+dm_qemistree_weighted = pd.read_csv("../01_input_data/02_qemistree/qemistree_memo_cscs_comparison/weighted_unifrac_dm.csv", sep=',')
 dm_qemistree_weighted = dm_qemistree_weighted.drop('Unnamed: 0', axis = 1)
 dm_qemistree_weighted.index = dm_qemistree_weighted.columns
 dm_qemistree_weighted = dm_qemistree_weighted[samples]
 dm_qemistree_weighted = dm_qemistree_weighted.loc[samples]
 
-dm_qemistree_unweighted = pd.read_csv("../01_data/02_qemistree/qemistree_memo_cscs_comparison/unweighted_unifrac_dm.csv", sep=',')
+dm_qemistree_unweighted = pd.read_csv("../01_input_data/02_qemistree/qemistree_memo_cscs_comparison/unweighted_unifrac_dm.csv", sep=',')
 dm_qemistree_unweighted = dm_qemistree_unweighted.drop('Unnamed: 0', axis = 1)
 dm_qemistree_unweighted.index = dm_qemistree_unweighted.columns
 dm_qemistree_unweighted = dm_qemistree_unweighted[samples]
@@ -343,7 +343,7 @@ results.to_csv(f"permanova/qemistree_dataset_group_{group}.csv")
 ''' Co-analysis of q-ToF and Q-Exactive data '''
 
 
-df_meta = pd.read_csv("../01_data/02_qemistree/1901_gradient_benchmarking_dataset_v4_sample_metadata.txt", sep='\t')
+df_meta = pd.read_csv("../01_input_data/02_qemistree/1901_gradient_benchmarking_dataset_v4_sample_metadata.txt", sep='\t')
 df_meta['Samplename'] = df_meta['Samplename'].str[:-6]
 df_meta['Samplename'] = df_meta['Samplename'].str.replace('BLANK_', 'BLANK')
 df_meta = df_meta[['Filename', 'Experiment', 'Samplename', 'Triplicate_number', 'Proportion_Fecal_1', 'Proportion_Fecal_2', 'Proportion_Tomato', 'Proportion_NIST_1950_SRM']]
@@ -353,15 +353,15 @@ df_meta['blank_qc'] = np.where(df_meta['Samplename'].str.contains('blank|qcmix',
 df_meta
 
     # QE
-feat_table_qe = memo.FeatureTable(path="../01_data/02_qemistree/qe_qtof_coanalysis/qe_quant_nogapF.csv", software='mzmine')
-spectra_qe = memo.SpectraDocuments(path="../01_data/02_qemistree/qe_qtof_coanalysis/qe_spectra_nogapF.mgf", min_relative_intensity = 0.01,
+feat_table_qe = memo.FeatureTable(path="../01_input_data/02_qemistree/qe_qtof_coanalysis/qe_quant_nogapF.csv", software='mzmine')
+spectra_qe = memo.SpectraDocuments(path="../01_input_data/02_qemistree/qe_qtof_coanalysis/qe_spectra_nogapF.mgf", min_relative_intensity = 0.01,
             max_relative_intensity = 1, min_peaks_required=10, losses_from = 10, losses_to = 200, n_decimals = 2)
 memo_qe = memo.MemoMatrix()
 memo_qe.memo_from_aligned_samples(feat_table_qe, spectra_qe)
 
     # Qtof
-feat_table_qtof = memo.FeatureTable(path="../01_data/02_qemistree/qe_qtof_coanalysis/qtof_quant_nogapF.csv", software='mzmine')
-spectra_qtof = memo.SpectraDocuments(path="../01_data/02_qemistree/qe_qtof_coanalysis/qtof_spectra_nogapF.mgf", min_relative_intensity = 0.01,
+feat_table_qtof = memo.FeatureTable(path="../01_input_data/02_qemistree/qe_qtof_coanalysis/qtof_quant_nogapF.csv", software='mzmine')
+spectra_qtof = memo.SpectraDocuments(path="../01_input_data/02_qemistree/qe_qtof_coanalysis/qtof_spectra_nogapF.mgf", min_relative_intensity = 0.01,
             max_relative_intensity = 1, min_peaks_required=10, losses_from = 10, losses_to = 200, n_decimals = 2)
 
 memo_qtof = memo.MemoMatrix()
