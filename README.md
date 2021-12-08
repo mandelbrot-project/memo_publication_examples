@@ -8,4 +8,5 @@
 Interactive plots are available [here](https://mandelbrot-project.github.io/memo_publication_examples/).
 
 ## Steps to reproduce
-To do
+1.   Clone this repository
+2.   Create virtual environment
