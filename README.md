@@ -1,4 +1,4 @@
-# memo_publication_examples
+# MEMO Publication Examples
 
 ![memo_logo](docs/memo_logo.jpg)
 
