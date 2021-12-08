@@ -6,7 +6,3 @@
 
 ## Interactive HTML plots
 Interactive plots are available [here](https://mandelbrot-project.github.io/memo_publication_examples/).
-
-## Steps to reproduce
-1.   Clone this repository
-2.   Create virtual environment
