@@ -27,11 +27,9 @@ def conditions(df_meta):
 """ PART 1: IMPORT AND PREPARE METADATA"""
 
 
-df_meta = pd.read_csv("../01_input_data/03_plant_extract_dataset/metadata/plant_extract_dataset_metadata.csv", sep=',')
+df_meta = pd.read_csv("../01_input_data/03_plant_extract_dataset/metadata/plant_extract_dataset_metadata.tsv", sep='\t')
 df_meta.sort_values(['ms_filename'], inplace=True)
 
-df_meta['bio_tryp_cruzi_10ugml_inhibition'].values[df_meta['bio_tryp_cruzi_10ugml_inhibition'].values > 100] = 100
-df_meta['bio_l6_cytotoxicity_10ugml_inhibition'].values[df_meta['bio_l6_cytotoxicity_10ugml_inhibition'].values > 100] = 100
 df_meta['batch'] = df_meta.apply(conditions, axis=1)
 
 df_meta['ms_injection_date_dateformat'] = pd.to_datetime(df_meta['ms_injection_date'], format = '%Y-%m-%d', infer_datetime_format=True)
@@ -63,12 +61,8 @@ df_meta_samples['species_organe_selected_size'] = np.where(
     df_meta_samples['species_organe_selected'] == 'Other',
     1, 10)
 
-df_meta_samples['tcruzi_activity_class'] = np.where(
-    (df_meta_samples['bio_tryp_cruzi_10ugml_inhibition'] > 80) & (df_meta_samples['bio_l6_cytotoxicity_10ugml_inhibition'] < 50),
-    'Active', 'Inactive')
-
 dic_cat = {}
-categories = ['species_organe_selected', 'before_after', 'genus_selected', 'goniothalamus', 'species_selected', 'ms_injection_date', 'bio_tryp_cruzi_10ugml_inhibition', 'tcruzi_activity_class']
+categories = ['species_organe_selected', 'before_after', 'genus_selected', 'goniothalamus', 'species_selected', 'ms_injection_date', 'tcruzi_activity_class']
 
 for cat in categories:
     if cat == 'before_after':
@@ -136,11 +130,6 @@ for cat in categories:
         }
         title = 'Species Organe Selected'
 
-    elif cat == 'bio_tryp_cruzi_10ugml_inhibition':
-        categorical = False
-        colorsIdx = 'Inferno'
-        title = 'T. cruzi activity'
-
     elif cat == 'tcruzi_activity_class':
         categorical = True
         colorsIdx = {
@@ -153,14 +142,11 @@ for cat in categories:
     dic_cat[cat]['colorsIdx'] = colorsIdx
     dic_cat[cat]['title'] = title
 
-
 samples = df_meta_samples['sample_id'].to_list()
-
 
 """ PART 2: GENERATE MEMO MATRIX FROM UNALIGNED SAMPLES"""
 
-
-    # Path to folder containning the mgf
+    # Path to folder containing the mgf
 path_to_file = "../01_input_data/03_plant_extract_dataset/individual_mgf_files"
 
     # Generating memo matrix
@@ -178,7 +164,6 @@ memo_unaligned_filtered = memo_unaligned_filtered.filter(samples_pattern='12', m
 
 
 """ PART 3: GENERATE MEMO MATRIX FROM ALIGNED SAMPLES"""
-
 
     # Path to .mgf and .csv of spectra and feature table
 path_mgf = "../01_input_data/03_plant_extract_dataset/aligned_feat_table_and_spectra/210302_feature_list_filtered_strong_aligned_cosine03.mgf"
@@ -636,7 +621,23 @@ fig.write_image(f"plot/tmap/tmap_vgf_color_{category}.svg",  scale=3)
 
 
     # Adapt metadata
-df_meta_with_waltheria = pd.read_csv("../01_input_data/03_plant_extract_dataset/metadata/plant_extract_dataset_metadata_with_waltheria.csv")
+
+metadata = pd.read_csv("../01_input_data/03_plant_extract_dataset/metadata/plant_extract_dataset_metadata.tsv", sep='\t')
+metadata_sub = metadata[['sample_id', 'sample_type', 'organism_species', 'organism_family','organism_genus', 'organism_organe']]
+metadata_sub = metadata_sub[metadata_sub['sample_type'] == 'sample']
+metadata_sub['species_organe'] = metadata_sub['organism_species'] + ' ' +  metadata_sub['organism_organe']
+
+metadata_sub['species_organe_selected'] = np.where(
+    metadata_sub['species_organe'] == 'Melochia umbellata green stems',
+    metadata_sub['species_organe'], 'Other')
+
+metadata_sub['species_selected'] = np.where(
+    metadata_sub['organism_species'] == 'Melochia umbellata',
+    metadata_sub['organism_species'], 'Other')
+
+metadata_sub = metadata_sub.drop(['organism_organe'], axis=1) 
+df_meta_waltheria = pd.read_csv("../01_input_data/03_plant_extract_dataset/metadata/metadata_waltheria.csv")
+df_meta_with_waltheria = metadata_sub.append(df_meta_waltheria)
 
 dic_cat_waltheria = {}
 categories = ['species_selected', 'species_organe_selected']
