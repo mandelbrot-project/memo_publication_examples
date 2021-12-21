@@ -1,6 +1,6 @@
 # MEMO Publication Examples
 
-![memo_logo](docs/memo_logo.jpg)
+<img src="https://github.com/mandelbrot-project/memo_publication_examples/blob/main/docs/memo_logo.jpg" width="300">
 
 # Code and Data to reproduce analyses of MEMO paper
 
