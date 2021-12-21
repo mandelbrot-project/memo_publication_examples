@@ -43,6 +43,6 @@ Large files are available on this [MASSive repository](https://massive.ucsd.edu/
 
 You need to download:
 - the aligned feature table and spectra: see details [here](https://github.com/mandelbrot-project/memo_publication_examples/tree/main/01_input_data/03_plant_extract_dataset/aligned_feat_table_and_spectra)
-- the individual .mgf spectra files: see detailes [here](https://github.com/mandelbrot-project/memo_publication_examples/tree/main/01_input_data/03_plant_extract_dataset/individual_mgf_files)
+- the 1,920 individual .mgf spectra files: see detailes [here](https://github.com/mandelbrot-project/memo_publication_examples/tree/main/01_input_data/03_plant_extract_dataset/individual_mgf_files)
 
 ### 5. Enjoy!
