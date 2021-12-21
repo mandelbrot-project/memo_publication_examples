@@ -48,21 +48,21 @@ df_meta_samples['species_selected'] = np.where(
     df_meta_samples['organism_species']
     , 'Other')
 
-df_meta_samples['species_organe'] = df_meta_samples['organism_species'] + ' ' + df_meta_samples['organism_organe']
-df_meta_samples['species_organe_selected'] = np.where(
-    (df_meta_samples['species_organe'] == 'Hymenocardia punctata leaves')|(df_meta_samples['species_organe'] == 'Goniothalamus gabriacianus roots')|
-    (df_meta_samples['species_organe'] == 'Limonia acidissima leaves')|(df_meta_samples['species_organe'] == 'Bombax anceps roots')|(df_meta_samples['species_organe'] == 'Bombax anceps leaves')|
-    (df_meta_samples['species_organe'] == 'Pithecellobium dulce leaves')|(df_meta_samples['species_organe'] == 'Goniothalamus gabriacianus leaves')|(df_meta_samples['species_organe'] == 'Flacourtia jangomas leaves'),
-    df_meta_samples['species_organe']
+df_meta_samples['species_organ'] = df_meta_samples['organism_species'] + ' ' + df_meta_samples['organism_organ']
+df_meta_samples['species_organ_selected'] = np.where(
+    (df_meta_samples['species_organ'] == 'Hymenocardia punctata leaves')|(df_meta_samples['species_organ'] == 'Goniothalamus gabriacianus roots')|
+    (df_meta_samples['species_organ'] == 'Limonia acidissima leaves')|(df_meta_samples['species_organ'] == 'Bombax anceps roots')|(df_meta_samples['species_organ'] == 'Bombax anceps leaves')|
+    (df_meta_samples['species_organ'] == 'Pithecellobium dulce leaves')|(df_meta_samples['species_organ'] == 'Goniothalamus gabriacianus leaves')|(df_meta_samples['species_organ'] == 'Flacourtia jangomas leaves'),
+    df_meta_samples['species_organ']
     , 'Other')
 
-df_meta_samples['species_organe'] = df_meta_samples['organism_species'] + ' ' + df_meta_samples['organism_organe']
-df_meta_samples['species_organe_selected_size'] = np.where(
-    df_meta_samples['species_organe_selected'] == 'Other',
+df_meta_samples['species_organ'] = df_meta_samples['organism_species'] + ' ' + df_meta_samples['organism_organ']
+df_meta_samples['species_organ_selected_size'] = np.where(
+    df_meta_samples['species_organ_selected'] == 'Other',
     1, 10)
 
 dic_cat = {}
-categories = ['species_organe_selected', 'before_after', 'genus_selected', 'goniothalamus', 'species_selected', 'ms_injection_date', 'tcruzi_activity_class']
+categories = ['species_organ_selected', 'before_after', 'genus_selected', 'goniothalamus', 'species_selected', 'ms_injection_date', 'tcruzi_activity_class']
 
 for cat in categories:
     if cat == 'before_after':
@@ -115,7 +115,7 @@ for cat in categories:
         }
         title = 'Injection date'
 
-    elif cat == 'species_organe_selected':
+    elif cat == 'species_organ_selected':
         categorical = True
         colorsIdx = {
         'Hymenocardia punctata leaves': 'rgb(155, 34, 38)',
@@ -128,7 +128,7 @@ for cat in categories:
         'Flacourtia jangomas leaves': 'rgb(0, 95, 115)',
         'Other': 'rgb(233, 216, 166)'
         }
-        title = 'Species Organe Selected'
+        title = 'Species Organ Selected'
 
     elif cat == 'tcruzi_activity_class':
         categorical = True
@@ -284,7 +284,7 @@ cats = list(results_pcoa[category].unique())
 if dic_cat[category]['categorical'] is True:
     for cat in cats:  
         result_cat = results_pcoa[results_pcoa[category] == cat]
-        if (category == 'species_organe_selected')|(category == 'tcruzi_activity_class'):
+        if (category == 'species_organ_selected')|(category == 'tcruzi_activity_class'):
             if (cat == 'Other') | (cat == 'Inactive') :
                 size=4
             else:
@@ -405,7 +405,7 @@ cats = list(results_umap[category].unique())
 if dic_cat[category]['categorical'] is True:
     for cat in cats:  
         result_cat = results_umap[results_umap[category] == cat]
-        if (category == 'species_organe_selected')|(category == 'tcruzi_activity_class'):
+        if (category == 'species_organ_selected')|(category == 'tcruzi_activity_class'):
             if (cat == 'Other') | (cat == 'Inactive') :
                 size=4
             else:
@@ -542,7 +542,7 @@ cats = list(results_tmap[category].unique())
 if dic_cat[category]['categorical'] is True:
     for cat in cats:  
         result_cat = results_tmap[results_tmap[category] == cat]
-        if (category == 'species_organe_selected')|(category == 'tcruzi_activity_class'):
+        if (category == 'species_organ_selected')|(category == 'tcruzi_activity_class'):
             if (cat == 'Other') | (cat == 'Inactive') :
                 size=4
             else:
@@ -623,24 +623,24 @@ fig.write_image(f"plot/tmap/tmap_vgf_color_{category}.svg",  scale=3)
     # Adapt metadata
 
 metadata = pd.read_csv("../01_input_data/03_plant_extract_dataset/metadata/plant_extract_dataset_metadata.tsv", sep='\t')
-metadata_sub = metadata[['sample_id', 'sample_type', 'organism_species', 'organism_family','organism_genus', 'organism_organe']]
+metadata_sub = metadata[['sample_id', 'sample_type', 'organism_species', 'organism_family','organism_genus', 'organism_organ']]
 metadata_sub = metadata_sub[metadata_sub['sample_type'] == 'sample']
-metadata_sub['species_organe'] = metadata_sub['organism_species'] + ' ' +  metadata_sub['organism_organe']
+metadata_sub['species_organ'] = metadata_sub['organism_species'] + ' ' +  metadata_sub['organism_organ']
 
-metadata_sub['species_organe_selected'] = np.where(
-    metadata_sub['species_organe'] == 'Melochia umbellata green stems',
-    metadata_sub['species_organe'], 'Other')
+metadata_sub['species_organ_selected'] = np.where(
+    metadata_sub['species_organ'] == 'Melochia umbellata green stems',
+    metadata_sub['species_organ'], 'Other')
 
 metadata_sub['species_selected'] = np.where(
     metadata_sub['organism_species'] == 'Melochia umbellata',
     metadata_sub['organism_species'], 'Other')
 
-metadata_sub = metadata_sub.drop(['organism_organe'], axis=1) 
+metadata_sub = metadata_sub.drop(['organism_organ'], axis=1) 
 df_meta_waltheria = pd.read_csv("../01_input_data/03_plant_extract_dataset/metadata/metadata_waltheria.csv")
 df_meta_with_waltheria = metadata_sub.append(df_meta_waltheria)
 
 dic_cat_waltheria = {}
-categories = ['species_selected', 'species_organe_selected']
+categories = ['species_selected', 'species_organ_selected']
 
 for cat in categories:
     if cat == 'species_selected':
@@ -650,9 +650,9 @@ for cat in categories:
         'Waltheria indica': 'rgb(174, 32, 18)',
         'Other': 'rgb(233, 216, 166)'
         }
-        title = 'Species Organe Selected'
+        title = 'Species Organ Selected'
 
-    elif cat == 'species_organe_selected':
+    elif cat == 'species_organ_selected':
         categorical = True
         colorsIdx = {
         'Melochia umbellata green stems': 'rgb(6, 214, 160)',
@@ -709,14 +709,14 @@ results_umap_waltheria['umap_x'] = embedding[:, 0]
 results_umap_waltheria['umap_y'] = embedding[:, 1]
 
     # 2. Select category to plot
-category = 'species_organe_selected'
+category = 'species_organ_selected'
 
 cats = list(results_umap_waltheria[category].unique())
 
 fig = go.Figure()
 for cat in cats:  
     result_cat = results_umap_waltheria[results_umap_waltheria[category] == cat]
-    if (category == 'species_organe_selected')|(category == 'species_selected'):
+    if (category == 'species_organ_selected')|(category == 'species_selected'):
         if (cat == 'Other') | (cat == 'Inactive') :
             size=4
         else:
@@ -735,7 +735,7 @@ for cat in cats:
             ),
             marker_color= dic_cat_waltheria[category]['colorsIdx'][cat], name=cat, legendgroup=cat,
             showlegend=True,
-            hovertext = result_cat['species_organe'],
+            hovertext = result_cat['species_organ'],
             line_width=1,
             line_color ='grey'
             )
@@ -790,7 +790,7 @@ for source, target in zip(s,t):
     results_tmap_waltheria['tmap_y'] = y
 
     # 2. Select category to plot
-category = 'species_organe_selected'
+category = 'species_organ_selected'
 
 fig = go.Figure()
 for edge in edges_list:
@@ -811,7 +811,7 @@ cats = list(results_tmap_waltheria[category].unique())
 
 for cat in cats:  
     result_cat = results_tmap_waltheria[results_tmap_waltheria[category] == cat]
-    if (category == 'species_organe_selected')|(category == 'species_selected'):
+    if (category == 'species_organ_selected')|(category == 'species_selected'):
         if (cat == 'Other') | (cat == 'Inactive') :
             size=4
         else:
@@ -830,7 +830,7 @@ for cat in cats:
             ),
             marker_color= dic_cat_waltheria[category]['colorsIdx'][cat], name=cat, legendgroup=cat,
             showlegend=True,
-            hovertext = result_cat['species_organe'],
+            hovertext = result_cat['species_organ'],
             line_width=1,
             line_color ='grey'
             )
