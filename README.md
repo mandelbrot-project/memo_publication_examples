@@ -4,6 +4,10 @@
 
 # Code and Data to reproduce analyses of MEMO paper
 
+## MEMO code repo
+
+https://github.com/mandelbrot-project/memo
+
 ## Interactive HTML plots
 Interactive plots are available [here](https://mandelbrot-project.github.io/memo_publication_examples/).
 
