@@ -13,6 +13,6 @@ dependencies:
   - plotly
   - pip
   - pip :
+    - scikit-bio
     - memo_ms
     - datatable
-    - scikit-bio
