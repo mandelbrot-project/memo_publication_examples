@@ -63,7 +63,7 @@ Comparative TMAP with samples colored according to their:
 *   [**Injection date**](https://mandelbrot-project.github.io/memo_publication_examples/plant_extract_dataset/tmap_vgf_color_ms_injection_date.html)
 *   [**_Trypanosoma cruzi_ activity**](https://mandelbrot-project.github.io/memo_publication_examples/plant_extract_dataset/tmap_vgf_color_tcruzi_activity_class.html)
 
-## Plant Extract Dataset and _Waltheria indica_ sampels (1603 plant extracts)
+## Plant Extract Dataset and three _Waltheria indica_(Malvaceae) samples (1603 plant extracts)
 UMAP and TMAP visulalization of MEMO from unaligned samples matrix of the Plant extract dataset after addition of 3 _Waltheria indica_ samples: 2 extracts of aerial parts and roots analyzed with same method as the plant extract dataset, and 1 extract of aerial parts analyzed with a different LC-method and Orbitrap (Plus vs Q-Exactive).
 
 *   [**UMAP**](https://mandelbrot-project.github.io/memo_publication_examples/waltheria_indica/umap_vgf_with_waltheria_color_species_organe_selected.html)
