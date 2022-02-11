@@ -393,7 +393,7 @@ for metric, matrix in zip(metrics, matrices):
     results_umap[metric+'_y'] = embedding[:, 1]
 
     # 2. Select category to plot
-category = 'before_after' #tcruzi_activity_class' #'bio_tryp_cruzi_10ugml_inhibition' #before_after #genus_selected #goniothalamus #species_selected
+category = 'tcruzi_activity_class' #tcruzi_activity_class' #'bio_tryp_cruzi_10ugml_inhibition' #before_after #genus_selected #goniothalamus #species_selected
 
 fig = make_subplots(rows=1, cols=3,
                     shared_xaxes=False,
@@ -655,7 +655,7 @@ for cat in categories:
     elif cat == 'species_organ_selected':
         categorical = True
         colorsIdx = {
-        'Melochia umbellata green stems': 'rgb(6, 214, 160)',
+        'Melochia umbellata green stems': 'rgb(69, 123, 157)',
         'Other': 'rgb(233, 216, 166)',
         'Waltheria indica aerial parts 2014': 'rgb(155, 34, 38)',
         'Waltheria indica aerial parts 2018': 'rgb(187, 62, 3)',
