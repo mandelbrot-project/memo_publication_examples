@@ -3,10 +3,10 @@
 <img src="https://github.com/mandelbrot-project/memo_publication_examples/blob/main/docs/memo_logo.jpg" width="300">
 
 # Code and Data to reproduce analyses of MEMO paper
+This repository contains code to reproduce MEMO analyses. The preprint is available on [Biorxiv](https://www.biorxiv.org/content/10.1101/2021.12.24.474089v1).
 
-## MEMO code repo
-
-https://github.com/mandelbrot-project/memo
+## MEMO package repository
+MEMO source code is available on [Github](https://github.com/mandelbrot-project/memo). It also available as a python package through [pip installation](https://pypi.org/project/memo-ms/).
 
 ## Interactive HTML plots
 Interactive plots are available [here](https://mandelbrot-project.github.io/memo_publication_examples/).
