@@ -144,6 +144,11 @@ for cat in categories:
 
 samples = df_meta_samples['sample_id'].to_list()
 
+
+df_meta_pear = pd.read_csv("../01_input_data/03_plant_extract_dataset/metadata/ProjetPoireCH201_Agroscope_metadata_mzmine.csv", sep=',')
+
+
+
 """ PART 2: GENERATE MEMO MATRIX FROM UNALIGNED SAMPLES"""
 
     # Path to folder containing the mgf
@@ -153,7 +158,7 @@ path_to_file = "../01_input_data/03_plant_extract_dataset/individual_mgf_files"
 memo_unaligned = memo.MemoMatrix()
 
 start = time.process_time()
-memo_unaligned.memo_from_unaligned_samples(path_to_file, min_relative_intensity = 0.01,
+memo_unaligned.memo_from_unaligned_samples(path_to_file, min_relative_intensity = 0.05,
             max_relative_intensity = 1, min_peaks_required=10, losses_from = 10, losses_to = 200, n_decimals = 2)
 print(f'Computing MEMO matrix from unaligned samples took: {time.process_time() - start} seconds')
 
@@ -162,6 +167,7 @@ memo_unaligned.memo_matrix.index = memo_unaligned.memo_matrix.index.str.replace(
 memo_unaligned_filtered = memo_unaligned.filter(samples_pattern='01')
 memo_unaligned_filtered = memo_unaligned_filtered.filter(samples_pattern='12', max_occurence=0)
 
+memo_unaligned_filtered = memo_unaligned
 
 """ PART 3: GENERATE MEMO MATRIX FROM ALIGNED SAMPLES"""
 
@@ -862,3 +868,18 @@ fig.show()
 fig.write_html(f"plot/waltheria/tmap_vgf_with_waltheria_color_{category}.html")
 fig.write_image(f"plot/waltheria/tmap_vgf_with_waltheria_color_{category}.jpeg",  scale=3)
 fig.write_image(f"plot/waltheria/tmap_vgf_with_waltheria_color_{category}.svg",  scale=3)
+
+
+
+memo.visualization.plot_pcoa_3d(
+    matrix= memo_unaligned.memo_matrix,
+    df_metadata=df_meta_pear,
+    metric= 'braycurtis',
+    filename_col = 'filename',
+    group_col='ATTRIBUTE_verger_pg',
+    norm = False,
+    scaling= False,
+    pc_to_plot = [1,2,3]
+)
+
+df_meta_pear['ATTRIBUTE_verger_pg'] = df_meta_pear['ATTRIBUTE_Porte-greffe'] + '_' + df_meta_pear['ATTRIBUTE_Verger']	
